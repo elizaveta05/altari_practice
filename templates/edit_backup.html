@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать Бэкап</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Редактировать Бэкап</h2>
+        <form method="POST" action="{{ url_for('edit_backup', id=backup['id']) }}" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="backup_name" class="form-label">Название бэкапа</label>
+                <input type="text" class="form-control" id="backup_name" name="backup_name" value="{{ backup['name'] }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="time" class="form-label">Дата создания</label>
+                <input type="datetime-local" class="form-control" id="time" name="time" value="{{ backup['created_at'] }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="wal_file_name" class="form-label">WAL-файл</label>
+                <input type="text" class="form-control" id="wal_file_name" name="wal_file_name" value="{{ backup['wal_file_name'] }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="backup_file" class="form-label">Новый файл бэкапа (если хотите обновить)</label>
+                <input type="file" class="form-control" id="backup_file" name="backup_file">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Сохранить изменения</button>
+        </form>
+        <a href="{{ url_for('view_backups') }}" class="btn btn-secondary mt-3">Назад к списку бэкапов</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Добавить бэкап</h2>
+    <form method="POST" action="/submit_backup" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="backup_name" class="form-label">Название бэкапа</label>
+            <input type="text" class="form-control" id="backup_name" name="backup_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="time" class="form-label">Время</label>
+            <input type="datetime-local" class="form-control" id="time" name="time" required>
+        </div>
+        <div class="mb-3">
+            <label for="wal_file_name" class="form-label">WAL-файл</label>
+            <input type="text" class="form-control" id="wal_file_name" name="wal_file_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="backup_file" class="form-label">Файл бэкапа</label>
+            <input type="file" class="form-control" id="backup_file" name="backup_file" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Добавить бэкап</button>
+    </form>
+</div>
